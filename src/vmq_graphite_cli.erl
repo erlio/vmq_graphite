@@ -16,16 +16,15 @@
 -export([register/0]).
 
 register() ->
-    ok.
-   % ConfigKeys =
-   % ["graphite_interval",
-   %  "graphite_prefix",
-   %  "graphite_port",
-   %  "graphite_host",
-   %  "graphite_api_key"],
-   % [clique:register_config([Key], fun register_config_callback/3)
-   %  || Key <- ConfigKeys],
-   % ok = clique:register_config_whitelist(ConfigKeys).
+    ConfigKeys =
+    ["graphite_interval",
+     "graphite_prefix",
+     "graphite_port",
+     "graphite_host",
+     "graphite_api_key"],
+    [clique:register_config([Key], fun register_config_callback/3)
+     || Key <- ConfigKeys],
+    ok = clique:register_config_whitelist(ConfigKeys).
 
 register_config_callback(_, _, _) ->
     Configs = [{vmq_graphite, application:get_all_env(vmq_graphite)}],
