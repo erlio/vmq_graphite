@@ -1,0 +1,38 @@
+%%-*- mode: erlang -*
+%% ex: ft=erlang
+
+%% @doc the interval we push metrics to the graphite server in ms
+{mapping, "graphite.interval", "vmq_graphite.graphite_interval", [{default, 15000},
+                                                                  {datatype, integer}
+                                                                 ]}.
+
+%% @doc set connect timeout
+{mapping, "graphite.connect_timeout", "vmq_graphite.graphite_connect_timeout", [
+                                                                                {default, 5000},
+                                                                                {datatype, integer},
+                                                                                hidden
+                                                                               ]}.
+
+%% @doc set the prefix that is applied to all metrics reported to graphite
+{mapping, "graphite.prefix", "vmq_graphite.graphite_prefix", [
+                                                              {default, "vernemq"},
+                                                              {datatype, string}
+                                                             ]}.
+
+%% @doc the tcp port of the graphite server
+{mapping, "graphite.port", "vmq_graphite.graphite_port", [
+                                                          {default, 2003},
+                                                          {datatype, integer}
+                                                         ]}.
+
+%% @doc the graphite server host name
+{mapping, "graphite.host", "vmq_graphite.graphite_host", [
+                                                          {default, "carbon.hostedgraphite.com"},
+                                                          {datatype, string}
+                                                         ]}.
+
+%% @doc the graphite server api key
+{mapping, "graphite.api_key", "vmq_graphite.graphite_api_key", [
+                                                                {default, "UNDEFINED"},
+                                                                {datatype, string}
+                                                               ]}.

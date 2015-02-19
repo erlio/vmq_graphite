@@ -1,0 +1,23 @@
+{application, vmq_graphite,
+ [
+  {description, ""},
+  {vsn, "1"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { vmq_graphite_app, []}},
+  {env, [
+      {graphite_interval, 15000},
+      {graphite_connect_timeout, 5000},
+      {graphite_prefix, "vmq"},
+      {graphite_port, 2003},
+      {graphite_host, "carbon.hostedgraphite.com"},
+      {graphite_api_key, "1356dad4-ef86-43d8-b6cf-0becd49e48a7"},
+      {vmq_config_enabled, true},
+      {vmq_plugin_hooks, [
+          {vmq_graphite, change_config, 1}
+      ]}
+  ]}
+ ]}.
