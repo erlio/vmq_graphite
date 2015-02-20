@@ -17,11 +17,11 @@
 
 register() ->
     ConfigKeys =
-    ["graphite_interval",
-     "graphite_prefix",
-     "graphite_port",
-     "graphite_host",
-     "graphite_api_key"],
+    ["graphite.interval",
+     "graphite.prefix",
+     "graphite.port",
+     "graphite.host",
+     "graphite.api_key"],
     [clique:register_config([Key], fun register_config_callback/3)
      || Key <- ConfigKeys],
     ok = clique:register_config_whitelist(ConfigKeys).
