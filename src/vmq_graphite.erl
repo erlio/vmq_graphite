@@ -64,19 +64,5 @@ init_graphite(GraphiteConfig) ->
     %% TODO: kind of a hack
     {ok, {apply, M, F, A}} = application:get_env(vmq_server,
                                                  exometer_predefined),
-    {ok, Entries} = apply(M, F, A),
-    ok = subscribe(Entries, Interval),
+    ok = apply(M, F, A ++ [{?REPORTER, Interval}]),
     exometer_report:enable_reporter(?REPORTER).
-
-
-subscribe([{Metric, histogram, _}|Rest], Interval) ->
-    exometer_report:subscribe(?REPORTER, Metric, value, Interval),
-    exometer_report:subscribe(?REPORTER, Metric, max, Interval),
-    exometer_report:subscribe(?REPORTER, Metric, min, Interval),
-    exometer_report:subscribe(?REPORTER, Metric, mean, Interval),
-    exometer_report:subscribe(?REPORTER, Metric, median, Interval),
-    subscribe(Rest, Interval);
-subscribe([{Metric, _, _}|Rest], Interval) ->
-    exometer_report:subscribe(?REPORTER, Metric, value, Interval),
-    subscribe(Rest, Interval);
-subscribe([], _) -> ok.
