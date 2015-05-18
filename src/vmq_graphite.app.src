@@ -17,7 +17,7 @@
       {graphite_api_key, "1356dad4-ef86-43d8-b6cf-0becd49e48a7"},
       {vmq_config_enabled, true},
       {vmq_plugin_hooks, [
-          {vmq_graphite, change_config, 1}
+          {vmq_graphite, change_config, 1, [internal]}
       ]}
   ]}
  ]}.
