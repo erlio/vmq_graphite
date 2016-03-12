@@ -5,7 +5,9 @@
   {registered, []},
   {applications, [
                   kernel,
-                  stdlib
+                  stdlib,
+                  clique,
+                  exometer_core
                  ]},
   {mod, { vmq_graphite_app, []}},
   {env, [
