@@ -7,20 +7,24 @@ The graphite plugin reports the broker metrics at a fixed interval (defined in M
 
 .. code-block:: ini
 
-    graphite.interval = 15000
-    graphite.host = carbon.hostedgraphite.com
-    graphite.port = 2003
-    graphite.api_key = YOUR-GRAPHITE-API-KEY
+    graphite_interval = 15000
+    graphite_host = carbon.hostedgraphite.com
+    graphite_port = 2003
+    graphite_api_key = YOUR-GRAPHITE-API-KEY
+
+.. note::
+
+    The `graphite_api_key` setting is only needed for hosted graphite, on locally installed servers this setting can be left blank.
 
 You can further tune the connection to the Graphite server:
 
 .. code-block:: ini
 
     # set the connect timeout (defaults to 5000 ms)
-    graphite.connect_timeout = 10000
+    graphite_connect_timeout = 10000
 
     # set a graphite prefix (defaults to 'vernemq')
-    graphite.prefix = myprefix
+    graphite_prefix = myprefix
 
 .. tip::
 
